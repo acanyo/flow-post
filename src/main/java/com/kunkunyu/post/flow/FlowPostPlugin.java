@@ -4,11 +4,11 @@ import com.kunkunyu.post.flow.extension.Follow;
 import org.springframework.stereotype.Component;
 import run.halo.app.extension.Scheme;
 import run.halo.app.extension.SchemeManager;
-import run.halo.app.extension.index.IndexSpec;
+import run.halo.app.extension.index.IndexSpecs;
 import run.halo.app.plugin.BasePlugin;
 import run.halo.app.plugin.PluginContext;
 
-import static run.halo.app.extension.index.IndexAttributeFactory.simpleAttribute;
+import java.util.Optional;
 
 
 @Component
@@ -25,17 +25,19 @@ public class FlowPostPlugin extends BasePlugin {
     @Override
     public void start() {
         schemeManager.register(Follow.class, indexSpecs -> {
-            indexSpecs.add(new IndexSpec()
-                .setName("email")
-                .setIndexFunc(simpleAttribute(
-                    Follow.class, follow -> follow.getEmail())));
-            indexSpecs.add(new IndexSpec()
-                .setName("status")
-                .setIndexFunc(simpleAttribute(Follow.class, follow -> {
-                    var status = follow.getStatus();
-                    return status == null ? null : status.name();
-                })));
 
+            indexSpecs.add(IndexSpecs.<Follow, String>single("email", String.class)
+                .indexFunc(
+                    follow -> Optional.ofNullable(follow.getEmail())
+                        .orElse(null)
+                )
+            );
+            indexSpecs.add(IndexSpecs.<Follow, Follow.FollowStatus>single("status", Follow.FollowStatus.class)
+                .indexFunc(
+                    follow -> Optional.ofNullable(follow.getStatus())
+                        .orElse(null)
+                )
+            );
         });
     }
 

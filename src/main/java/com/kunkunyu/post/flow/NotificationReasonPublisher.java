@@ -35,9 +35,9 @@ import static com.kunkunyu.post.flow.NotificationReasonConst.SUBSCRIBE_TO_NEW_PO
 import static org.apache.commons.lang3.ObjectUtils.defaultIfNull;
 import static org.springframework.data.domain.Sort.Order.desc;
 import static run.halo.app.extension.MetadataUtil.nullSafeAnnotations;
-import static run.halo.app.extension.index.query.QueryFactory.and;
-import static run.halo.app.extension.index.query.QueryFactory.equal;
-import static run.halo.app.extension.index.query.QueryFactory.isNull;
+import static run.halo.app.extension.index.query.Queries.and;
+import static run.halo.app.extension.index.query.Queries.equal;
+import static run.halo.app.extension.index.query.Queries.isNull;
 
 @Component
 @RequiredArgsConstructor

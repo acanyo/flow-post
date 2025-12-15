@@ -1,10 +1,10 @@
-import { definePlugin } from "@halo-dev/console-shared";
+import { definePlugin } from "@halo-dev/ui-shared";
 import { markRaw } from "vue";
-import Follows from "@/views/Follows.vue";
 import '@kunkunyu/follow-card';
 import {FollowCardExtension} from "@/editor";
 import MingcuteFollowLine from '~icons/mingcute/follow-line?width=1.2em&height=1.2em';
 import NewPostNotifiedField from "@/views/NewPostNotifiedField.vue";
+import "uno.css";
 
 export default definePlugin({
   components: {},
@@ -14,7 +14,7 @@ export default definePlugin({
       route: {
         path: "/follow",
         name: "Follow",
-        component: Follows,
+        component: () => import("@/views/Follows.vue"),
         meta: {
           title: "文章订阅",
           description: "允许用户轻松订阅您的网站或博客，及时获取最新文章通知。支持邮件订阅、推送提醒等功能，帮助您留住读者并提升互动率",
@@ -33,7 +33,7 @@ export default definePlugin({
     "default:editor:extension:create": () => {
       return [FollowCardExtension];
     },
-    "post:list-item:field:create": (post) => {
+    "post:list-item:field:create": (post: any) => {
       return [{
         priority: 40,
         position: "end",

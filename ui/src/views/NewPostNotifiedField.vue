@@ -26,7 +26,7 @@ const newPostNotified = computed( () => {
 <template>
   <VEntityField v-if="newPostNotified" v-tooltip="'文章订阅：推送'">
     <template #description>
-      <MingcuteFollowLine class="cursor-pointer text-sm" />
+      <MingcuteFollowLine class=":uno: cursor-pointer text-sm" />
     </template>
   </VEntityField>
 </template>

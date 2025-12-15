@@ -32,12 +32,14 @@ const showMultiline = computed(() => {
 </script>
 
 <template>
-  <node-view-wrapper as="div" class="contact-follow-card-container"
-                     :class="{
-        'contact-follow-card-container--selected': selected,
-      }">
+  <node-view-wrapper 
+    as="div" 
+    :class="[
+      ':uno: rounded overflow-hidden mt-3',
+      selected ? ':uno: ring-2' : ':uno: ring-1 ring-gray-200'
+    ]">
 
-    <div class="contact-follow-card-preview">
+    <div class=":uno: p-2.5">
       <follow-card 
         :text-align="textAlign"
         :show-title="showTitle"
@@ -48,27 +50,3 @@ const showMultiline = computed(() => {
     
   </node-view-wrapper>
 </template>
-
-<style>
-.contact-follow-card-container {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000);
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: .75em
-}
-
-.contact-follow-card-container--selected {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000);
-  --tw-ring-color: inherit
-}
-
-.contact-follow-card-preview {
-  padding: 5px 10px
-}
-</style>  

@@ -27,6 +27,6 @@ const titleText = computed({
   <input
     v-model.lazy="titleText"
     placeholder="输入标题，按回车确认"
-    class="bg-gray-50 rounded-md hover:bg-gray-100 block px-2 w-full py-1.5 text-sm text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+    class=":uno: bg-gray-50 rounded-md hover:bg-gray-100 block px-2 w-full py-1.5 text-sm text-gray-900 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
   />
 </template>

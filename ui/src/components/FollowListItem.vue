@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { formatDatetime } from "@/utils/date";
 import {
   VEntity,
   VEntityField,
@@ -11,6 +10,7 @@ import {
 import {type Follow, FollowStatusEnum} from "@/api/generated";
 import {flowPostApiClient, flowPostCoreApiClient} from "@/api";
 import {useQueryClient} from "@tanstack/vue-query";
+import {utils} from "@halo-dev/ui-shared";
 
 const props = withDefaults(
   defineProps<{
@@ -93,6 +93,32 @@ const state = (status:string) =>{
   if (status == FollowStatusEnum.Confirm) {
     return 'success';
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   if (status == FollowStatusEnum.Cancel) {
     return 'default';
   }
@@ -147,8 +173,8 @@ const statusText = (status:string) =>{
       </VEntityField>
       <VEntityField>
         <template #description>
-          <span class="truncate text-xs tabular-nums text-gray-500">
-            {{ formatDatetime(follow.metadata.creationTimestamp) }}
+          <span class=":uno: truncate text-xs tabular-nums text-gray-500">
+            {{ utils.date.format(follow.metadata.creationTimestamp) }}
           </span>
         </template>
       </VEntityField>

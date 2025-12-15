@@ -12,9 +12,9 @@ import run.halo.app.extension.router.SortableRequest;
 import java.util.Optional;
 
 import static org.springdoc.core.fn.builders.parameter.Builder.parameterBuilder;
-import static run.halo.app.extension.index.query.QueryFactory.contains;
-import static run.halo.app.extension.index.query.QueryFactory.equal;
-import static run.halo.app.extension.index.query.QueryFactory.or;
+import static run.halo.app.extension.index.query.Queries.contains;
+import static run.halo.app.extension.index.query.Queries.equal;
+import static run.halo.app.extension.index.query.Queries.or;
 import static run.halo.app.extension.router.QueryParamBuildUtil.sortParameter;
 
 public class FollowQuery extends SortableRequest {

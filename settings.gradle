@@ -4,4 +4,5 @@ pluginManagement {
     }
 }
 rootProject.name = 'flow-post'
-
+include 'ui'
+include 'packages:follow-card'
